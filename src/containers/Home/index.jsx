@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import api from '../../services/api';
-import { Background, Container, Info, Poster } from './styles';
+import { Background, ConatinerButtons, Container, Info, Poster } from './styles';
+import Button from '../../components/Button';
 
 function Home() {
   const [movie, setMovie] = useState()
@@ -27,6 +28,11 @@ function Home() {
             <Info>
               <h1>{movie.title}</h1>
               <p>{movie.overview}</p>
+              <ConatinerButtons>
+                <Button red>Assita agora</Button>
+                <Button>Assita o Trailer</Button>
+              </ConatinerButtons>
+
             </Info>
             <Poster>
               <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="poster-movie" />

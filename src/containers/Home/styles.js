@@ -39,19 +39,24 @@ export const Info = styled.div`
     color: #ffffff;
   }
 
-  p{
+  p {
     font-size: 20px;
     font-weight: 500;
     color: #ffffff;
     margin: 20px 0 30px;
-    
   }
 `;
 
 export const Poster = styled.div`
-z-index: 3;
+  z-index: 3;
   img {
     width: 400px;
     border-radius: 30px;
   }
+`;
+
+export const ConatinerButtons = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
 `;
