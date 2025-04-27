@@ -15,7 +15,7 @@ function Slider({ info, title }) {
       >
         {info.map((item, index) => (
           <SwiperSlide key={index}>
-            <div>{item.original_tilte}</div>
+            <div style={{ color: '#ffffff'}}>{item.title}</div>
           </SwiperSlide>
         ))}
       </Swiper>
