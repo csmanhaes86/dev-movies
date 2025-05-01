@@ -5,6 +5,7 @@ import { Background, ConatinerButtons, Container, Info, Poster } from './styles'
 import Button from '../../components/Button';
 import Slider from '../../components/Slider';
 import { getImages } from '../../utils/getImages';
+import Modal from '../../components/Modal';
 
 function Home() {
   const [movie, setMovie] = useState()
@@ -18,6 +19,7 @@ function Home() {
     async function getMovies() {
       const { data: { results } } = await api.get('/movie/popular');
 
+      console.log(results[2])
       setMovie(results[2])
     }
 
@@ -58,6 +60,7 @@ function Home() {
     <>
       {movie && (
         <Background img={getImages(movie.backdrop_path)}>
+          <Modal movieId={movie.id} />
           <Container>
             <Info>
               <h1>{movie.title}</h1>
