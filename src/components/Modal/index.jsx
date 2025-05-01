@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Background, Container } from './styles';
 import api from '../../services/api';
 
-function Modal({ movieId }) {
+function Modal({ movieId, setShowModal }) {
 
   const [movie, setMovie] = useState()
   useEffect(() => {
@@ -17,9 +17,10 @@ function Modal({ movieId }) {
   }, [])
 
   return (
-    <Background>
+    <Background onClick={() => setShowModal(false)}>
       {movie && (
         <Container>
+          <button onClick={() => setShowModal(false)}>X</button>
           <iframe src={`https://www.youtube.com/embed/${movie.key}`}
             title="Youtube Video Player"
             height="500px"

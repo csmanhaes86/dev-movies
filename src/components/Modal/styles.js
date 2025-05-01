@@ -18,8 +18,25 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  flex-direction: column;
+  padding: 20px 50px;
   max-width: 1200px;
+
+  button {
+    align-self: flex-end;
+    border: solid 1px #ffffff;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 2px;
+    background: #000000;
+    color: #ffffff;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 
   iframe {
     border: none;
