@@ -18,34 +18,30 @@ function Home() {
     async function getMovies() {
       const { data: { results } } = await api.get('/movie/popular');
 
-      setMovie(results[1])
+      setMovie(results[2])
     }
 
     async function getTopMovies() {
       const { data: { results } } = await api.get('/movie/top_rated');
 
-      console.log(results)
       setTopMovies(results)
     }
 
     async function getTopSeries() {
       const { data: { results } } = await api.get('/tv/top_rated');
 
-      console.log(results)
       setTopSeries(results)
     }
 
     async function getPopularSeries() {
       const { data: { results } } = await api.get('/tv/popular');
 
-      console.log(results)
       setPopularSeries(results)
     }
 
     async function getPersonPopular() {
       const { data: { results } } = await api.get('/person/popular');
 
-      console.log(results)
       setPersonPopular(results)
     }
 
