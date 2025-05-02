@@ -14,10 +14,10 @@ import { getImages } from '../../utils/getImages';
 import Modal from '../../components/Modal';
 import {
   getMovies,
-  getPersonPopular,
-  getPopularSeries,
   getTopMovies,
   getTopSeries,
+  getPersonPopular,
+  getPopularSeries,
 } from '../../services/getData';
 
 function Home() {
@@ -31,13 +31,24 @@ function Home() {
 
   useEffect(() => {
     async function getAllData() {
-      setMovie(await getMovies());
-      setTopMovies(await getTopMovies());
-      setTopSeries(await getTopSeries());
-      setPopularSeries(await getPopularSeries());
-      setPersonPopular(await getPersonPopular());
+      Promise.all([
+        getMovies(),
+        getTopMovies(),
+        getTopSeries(),
+        getPopularSeries(),
+        getPersonPopular()
+      ])
+        .then(([movies, topMovies, topSeries, popularSeries, popularPerson]) => {
+          setMovie(movies);
+          setTopMovies(topMovies);
+          setTopSeries(topSeries);
+          setPopularSeries(popularSeries);
+          setPersonPopular(popularPerson);
+        }).catch((error) => { console.error(error) })
+
     }
     getAllData();
+
   }, []);
 
   return (
